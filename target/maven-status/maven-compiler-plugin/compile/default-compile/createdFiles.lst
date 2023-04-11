@@ -1,0 +1,6 @@
+com\example\demo\controller\DemoController.class
+com\example\demo\Demo11Application.class
+com\example\demo\service\DemoService.class
+com\example\demo\repository\DemoRepository.class
+com\example\demo\model\Demo.class
+com\example\demo\service\impl\DemoServiceImpl.class
