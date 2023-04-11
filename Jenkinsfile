@@ -25,7 +25,7 @@ sh './mvnw clean package -DskipTests=true'
 		
 		stage(DockerBuild){
 			steps{
-				sh 'docker build -t sangeetapalankar/jenkins-docker-demo:demo1 .'
+				sh 'docker build -t sangeetapalankar/jenkins-docker-demo:mockdemo .'
 			}
 		}
 		
