@@ -42,7 +42,7 @@ stage('Push') {
 
 steps {
 
-sh 'docker push sangeetapalankar/rushi'
+sh 'docker push sangeetapalankar/rushi:demo1'
 
 }
 
