@@ -40,7 +40,7 @@ stage('DockerBuild') {
 
 steps {
 
-sh 'docker build -t sangeetapalankar/demo2:rushi .'
+sh 'docker build -t sangeetapalankar/rushi:demo2 .'
 
 }
 
@@ -60,7 +60,7 @@ stage('Push') {
 
 steps {
 
-sh 'docker push sangeetapalankar/rushi:demo1'
+sh 'docker push sangeetapalankar/rushi:demo2'
 
 }
 
