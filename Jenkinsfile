@@ -1,38 +1,56 @@
 pipeline{
 
 agent any
+
 stages{
 
 stage('Checkout'){
+
 steps{
+
 git branch: "main", url: 'https://github.com/sangeetaPalankar/Mockinterview.git'
+
 }
 
 }
 
 stage('Build'){
+
 steps{
+
 sh 'chmod a+x mvnw'
-sh './mvnw clean package -DskipTests=true' 
-			}
-			
-			post{
-				always{
-					archiveArtifacts 'target/*.jar'
-				}
-			}
-		}
-		
-		stage(DockerBuild){
-			steps{
-				sh 'docker build -t sangeetapalankar/rushi:demo1 .'
-			}
-		}
-		stage('Login') {
+
+sh './mvnw clean package -DskipTests=true'
+
+}
+
+post{
+
+always{
+
+archiveArtifacts 'target/*.jar'
+
+}
+
+}
+
+}
+
+stage('DockerBuild') {
 
 steps {
 
-sh 'echo sangita@061 | docker login -u sangeetapalankar --password-stdin'
+sh 'docker build -t sangeetapalankar/demo1:latest .'
+
+}
+
+}
+
+stage('Login') {
+
+steps {
+
+sh 'echo sangita123 | docker login -u sangeetapalankar --password-stdin'
 
 }
 
@@ -42,7 +60,7 @@ stage('Push') {
 
 steps {
 
-sh 'docker push sangeetapalankar/rushi:demo1'
+sh 'docker push sangeetapalankar/demo1'
 
 }
 
@@ -57,7 +75,7 @@ always {
 sh 'docker logout'
 
 }
-	}
+
 }
 
-
+}
